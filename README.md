@@ -1,31 +1,64 @@
 # HttpSessionKeeper
 
-TODO: Delete this and the text below, and describe your gem
+`HttpSessionKeeper` is a lightweight Ruby gem that provides a simple HTTP server with session management, cookies, and Redis-based session storage. It is designed to be easy to use and extend, making it a great tool for building small web applications or prototyping.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/http_session_keeper`. To experiment with that code, run `bin/console` for an interactive prompt.
+---
+
+## Features
+
+- **Session Management**: Similar to Rails sessions, but lightweight and customizable.
+- **Cookie Support**: Easily manage cookies in requests and responses.
+- **Redis Storage**: Store session data in Redis for persistence and scalability.
+- **Simple API**: Easy-to-use API for handling requests, responses, sessions, and cookies.
+
+---
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'http_session_keeper'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```bash
+bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Or install it directly using:
+
+```bash
+gem install http_session_keeper
+```
+
+---
 
 ## Usage
 
-TODO: Write usage instructions here
+### Starting the Server
 
-## Development
+To start the HTTP server, run the following command:
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+http_session_keeper
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+By default, the server runs on `http://localhost:3000`. You can specify a custom port and Redis URL:
 
-## Contributing
+```bash
+http_session_keeper --port 4000 --redis-url redis://localhost:6379
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/http_session_keeper.
+---
+
+## Configuration
+
+### Redis
+
+By default, `HttpSessionKeeper` connects to Redis at `redis://localhost:6379`. You can specify a custom Redis URL when starting the server:
+
+```bash
+http_session_keeper --redis-url redis://your-redis-url:6379
+```
