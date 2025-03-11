@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "http_session_keeper"
+
+port = ARGV[0] || 3000
+redis_url = ARGV[1] || "redis://localhost:6379"
+
+server = HttpSessionKeeper::Server.new(port: port.to_i, redis_url: redis_url)
+server.start
